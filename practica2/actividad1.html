@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Actividad 1</title>
+</head>
+<body>
+    <div>
+        <label for="cadena">Introduce una cadena:</label>
+        <input type="text" id="cadena" name="cadena">
+        <button onclick="Conversor()">Convertir la cadena</button>
+    </div>
+    <div id="resultado">
+        <label for="inversa">La cadena invertida es:</label>
+        <input type="text" id="inversa" name="inversa">
+        <br>
+        <label for="mayusculas">La cadena en mayúsculas es:</label>
+        <input type="text" id="mayusculas" name="mayusculas">
+        <br>
+        <label for="repetida">La cadena repetida es:</label>
+        <input type="text" id="repetida" name="repetida">
+        <br>
+        <label for="invertida">La cadena invertida es:</label>
+        <input type="text" id="invertida" name="invertida">
+    </div>
+    <script src="utils.js"></script>
+</body>
+</html>
+<style>
+    div {
+        display: flex; flex-direction: column; gap: 10px; margin-bottom: 3rem;
+    }
+</style>
