@@ -1,0 +1,2 @@
+Buenas tardes, aquí tiene el enlace para acceder al repositorio de GitHub donde subiré todas las prácticas además de en el campus.
+https://github.com/Patrickvald/Patrickvald-js-daw2024-practicas-patrickvald.git
