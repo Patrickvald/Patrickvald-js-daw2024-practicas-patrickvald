@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exercise 2.1 - Array Sum (Iterative & Recursive)</title>
+    <script src="utils.js" defer></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const numbers = [1, 2, 3, 4, 5];
+            
+            const iterativeResult = iterativeSum(numbers);
+            console.log('Iterative sum result:', iterativeResult);
+
+            const recursiveResult = recursiveSum(numbers);
+            console.log('Recursive sum result:', recursiveResult);
+        });
+    </script>
+</head>
+<body>
+    <h1>Exercise 2.1</h1>
+    <p>Open the console to see the results of the iterative and recursive sum of the array</p>
+</body>
+</html>

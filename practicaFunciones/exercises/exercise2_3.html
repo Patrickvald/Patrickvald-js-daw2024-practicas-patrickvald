@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exercise 2.3 - Process Array of People</title>
+    <script src="utils.js" defer></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const people = [
+                { name: "John", age: 17 },
+                { name: "Ana", age: 22 },
+                { name: "Peter", age: 19 },
+                { name: "Laura", age: 16 }
+            ];
+
+            const totalProcessedAge = processAges(people);
+            console.log('Total sum of processed ages:', totalProcessedAge);
+        });
+    </script>
+</head>
+<body>
+    <h1>Exercise 2.3</h1>
+    <p>Open the console to see the total sum of processed ages for people older than 18</p>
+</body>
+</html>

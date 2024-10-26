@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exercise 2.2 - Increase Product Prices</title>
+    <script src="utils.js" defer></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const products = [
+                { name: "T-shirt", price: 20 },
+                { name: "Pants", price: 30 },
+                { name: "Shoes", price: 50 }
+            ];
+
+            const updatedProducts = increasePrices(products);
+            updatedProducts.forEach(product => {
+                console.log(`Product: ${product.name}, New Price: ${product.price.toFixed(2)}`);
+            });
+        });
+    </script>
+</head>
+<body>
+    <h1>Exercise 2.2</h1>
+    <p>Open the console to see the updated prices for each product</p>
+</body>
+</html>

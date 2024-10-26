@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Practice 3 - Custom Filter</title>
+    <script src="utils.js" defer></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const numbers = [1, 2, 3, 4];
+            const words = ['apple', 'banana', 'cherry'];
+            const factorial = (num) => num === 0 ? 1 : num * factorial(num - 1);
+
+            console.log('Original numbers:', numbers);
+            console.log('Doubled numbers:', customFilter(numbers, (n) => n * 2));
+            console.log('Uppercase words:', customFilter(words, (w) => w.toUpperCase()));
+            console.log('Factorials:', customFilter(numbers, factorial));
+        });
+    </script>
+</head>
+<body>
+    <h1>Practice 3</h1>
+    <p>Open the console to see the results of applying custom filters</p>
+</body>
+</html>
