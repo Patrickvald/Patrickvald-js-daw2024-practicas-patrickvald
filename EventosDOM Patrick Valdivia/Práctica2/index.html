@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Formulary</title>
+</head>
+<body>
+    <form id="formulario">
+        <label for="email">Email:</label>
+        <input type="text" id="email" name="email">
+        <p id="email-error" style="color: red; display: none;">Example: xxxx@yyyy.zzzz</p>
+        
+        <label for="password">Password:</label>
+        <input type="password" id="password" name="password">
+        <p id="password-error" style="color: red; display: none;">Password must be between 8 and 10 characters</p>
+        
+        <button type="submit" id="submit-btn" disabled style="background-color: grey; color: white;">Submit</button>
+    </form>
+
+    <script src="utils.js"></script>
+</body>
+</html>
