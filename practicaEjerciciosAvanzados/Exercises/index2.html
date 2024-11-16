@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>A / B</title>
+    <style>
+        #container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            background-color: #f0f0f0;
+        }
+
+        input[type="text"] {
+            padding: 8px;
+            margin-right: 10px;
+            margin-bottom: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+
+        button {
+            padding: 8px 12px;
+            background-color: #007bff;
+            color: #fff;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background-color: #0069d9;
+        }
+    </style>
+</head>
+<body>
+    <div id="container">
+        <h1>A / B</h1>
+        <input type="text" id="a" placeholder="A">
+        <input type="text" id="b" placeholder="B">
+        <button id="divide" onclick="divide()">Divide</button>
+        <div id="result"></div>
+    </div>
+    <script>
+        function divide() {
+            const a = parseInt(document.getElementById("a").value);
+            const b = parseInt(document.getElementById("b").value);
+            if(b === 0) throw new Error("B cannot be zero");
+            
+            const result = (a / b).toFixed(2);
+            document.getElementById("result").textContent = `${result}`;
+        }
+        function trycatch (){
+            try {
+                divide();
+            } catch (error) {
+                console.log(error.message);
+            }
+        }
+    </script>
+</body>
+</html>

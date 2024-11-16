@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cookie Counter</title>
+</head>
+<body>
+    <h1>Cookie Counter</h1>
+    <p id="count"></p>
+    <script>
+        function setCookie(name, value, days){
+            const date = new Date();
+            date.setTime(date.getTime() + (days * 24 * 60 * 60 *1000));
+            const expires = "expires=" + date.toUTCString();
+            document.cookie = name + "=" + value + ";" + expires + ";path=/";
+        }
+
+        function getCookie(name){
+            const cookieName = name + "=";
+            const cookie = decodeURIComponent(document.cookie);
+            const cookieValor = cookie.split(";").find(c => c.trim().startsWith(cookieName));
+            return cookieValor ? cookieValor.split("=")[1] : null;
+        }
+
+        function deleteCookie(name){
+            document.cookie = name + "=; expires = Thu, 01 Jan 1970 00:00:00 UTC; path=/;";
+        }
+
+        function countCookies(){
+            const cookieName = "count";
+            let views = getCookie(cookieName);
+            if(views){
+                views = parseInt(views) + 1;
+            } else {
+                views = 1;
+            }
+
+            //Now we need to manage the count or reset it
+            if(views === 10){
+                deleteCookie(cookieName);
+                document.getElementById("count").textContent = "You have visited this page 10 times. We reseted the count.";
+            } else {
+                setCookie(cookieName, views, 30); //We create the cookie with the count and with 30 days of expiration
+                document.getElementById("count").textContent = `You have visited this page ${views} times.`;
+            }
+        }
+        countCookies();
+    </script>    
+</body>
+
+</html>

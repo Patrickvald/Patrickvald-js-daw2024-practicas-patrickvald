@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cookies</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background-color: #f0f0f0;
+        }
+        .container {
+            background-color: #ffffff;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        .welcomeMessage {
+            font-size: 1.2em;
+            color: #333;
+        }
+
+        input[type="text"] {
+            padding: 8px;
+            margin-right: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+
+        button {
+            padding: 8px 12px;
+            background-color: #007bff;
+            color: #fff;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background-color: #0069d9;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div>
+            <h1 id="welcomeMessage"></h1>
+        </div>
+        <div id="form">
+            <input type="text" id="name" placeholder="Your name">
+            <button id="save" onclick="saveName()">Set name</button>
+        </div>
+    </div>
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            //Creation of a cookie
+        function setCookie(name, value, days){
+            const date = new Date(); //The current date
+            date.setTime(date.getTime() + (days * 24 * 60 * 60 * 1000)); //We set the expiration date
+            const expires = "expires= " + date.toUTCString();
+            document.cookie = name + " = " + value + ";" + expires + ";path=/"; //We set the cookie
+        }
+
+        //Reading the cookie
+        function getCookie(name){
+            const cookieName = name + "="; //The name of the cookie that we want
+            const cookie = decodeURIComponent(document.cookie); //We get all the cookies
+            const cookieValor = cookie.split(";").find(c => c.trim().startsWith(cookieName)); //We find the cookie that we want
+            return cookieValor ? cookieValor.split("=")[1] : null; //We return the value of the cookie
+        }
+        
+        function saveName(){
+            const name = document.getElementById("name").value;
+            if(name){
+                setCookie("name", name, 30);//Save the name for 1 month
+            }
+        }
+
+        function displayWelcome(name){
+            document.getElementById("welcomeMessage").textContent = `Welcome ${name}`;
+            document.getElementById("welcomeMessage").style.display = "block";
+            document.getElementById("welcomeMessage").style.color = "red";
+            document.getElementById("form").style.display = "none";
+        }
+
+ 
+        const name = getCookie("name");
+        if(name){
+            displayWelcome(name); 
+        }
+        document.getElementById("save").addEventListener("click", saveName);
+    });
+    </script>
+</body>
+</html>

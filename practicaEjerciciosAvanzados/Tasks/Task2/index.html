@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Timer</title>
+</head>
+<body>
+    <input type="text" id="timer" placeholder="Enter a time in miliseconds">
+    <button onclick="startTimer()">Start timer</button>
+    <p id="result"></p>
+    <script>
+        //First we create the timer, which will return a promise with the timer and his result
+        function createTimer(ms) {
+            return new Promise ((resolve, reject) => {
+                //If the timer works correctly, we resolve the promise with the result
+                const timer = setTimeout(() => {
+                    resolve("Timer is over");
+                }, ms);
+                //If the timer doesn't work, we reject the promise with an error
+                setTimeout(() => {
+                    reject("The timer is not working properly")
+                },ms * 2);
+            })
+        }
+        //Now we can get the time from the input and call the timer if the number is valid
+        function startTimer() {
+            const input = document.getElementById("timer").value;
+            const time = parseInt(input);
+            //If the time is not valid, we show an error message
+            if(isNaN(time) || time <= 0){
+                document.getElementById("result").textContent = "The time is not valid";
+                return;
+            }
+            //Lastly, we call the timer and show the result
+            createTimer(time)
+                .then((result) => {
+                    document.getElementById("result").textContent = result;
+                })
+                .catch((error) => {
+                    document.getElementById("result").textContent = error;
+                });
+        }
+        
+    </script>
+</body>
+</html>

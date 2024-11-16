@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Promise</title>
+</head>
+<body>
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            function simulaProceso(exito){
+                return new Promise((resolve, reject) => {
+                    if(exito){
+                        resolve("Success");
+                    } else {
+                        reject("Error");
+                    }
+                })
+            }
+
+            //First case, the promise is resolved
+            simulaProceso(true)
+                .then(result => console.log('Success: ',result))
+                .catch(error => console.log('Error: ', error));
+
+            //Second case, the promise is rejected
+            simulaProceso(false)
+                .then(result => console.log('Success: ',result))
+                .catch(error => console.log('Error: ', error));
+            
+            //Third case, async/await
+            async function simulaProcesoAsync() {
+                try{
+                    const example = await simulaProceso(true);
+                    console.log('Success: ', example);
+                } catch(error) {
+                    console.log('Error');
+                }
+            }
+            simulaProcesoAsync(true);
+            simulaProcesoAsync(false);
+        })
+    </script>
+</body>
+</html>
