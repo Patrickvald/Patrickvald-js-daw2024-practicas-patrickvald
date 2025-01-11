@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Video Notification</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="countdown">5</div>
+    <div class="notification" id="notification">Check out the new video!</div>
+
+    <div id="video-container">
+        <video id="video" controls>
+            <source src="example_MP4.mp4" type="video/mp4">
+            Your browser does not support the video tag.
+        </video>
+        <div class="video-info" id="video-info"></div>
+    </div>
+
+    <script src="utils.js"></script>
+</body>
+</html>

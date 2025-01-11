@@ -1,6 +1,5 @@
 window.onload = function() {
     const page = document.body.getAttribute("activity");
-    console.log('hago cosas')
     if (page === "6") {
         const fecha = new Date();
         const meses = ['enero', 'febrero', 'marzo', 'abril', 'mayo', 'junio', 'julio', 'agosto', 'septiembre', 'octubre', 'noviembre', 'diciembre'];
@@ -46,7 +45,6 @@ function generaTabla() {
     });
     tabla.appendChild(fila);
 }
-
 function convertir() {
     const numero = Number(document.getElementById("numero").value);
     const binario = numero.toString(2);
@@ -57,10 +55,8 @@ function convertir() {
     document.getElementById("octal").textContent = octal;
     document.getElementById("hexadecimal").textContent = hexadecimal;
 }
-
 function calcularEdad() {
     const fechaNacimiento = new Date(document.getElementById("fechaNacimiento").value);
-
     //Verificar si se seleccionó una fecha válida
     if (!fechaNacimiento || isNaN(fechaNacimiento)) {
         alert("Por favor, selecciona una fecha válida.");
@@ -69,30 +65,25 @@ function calcularEdad() {
     const hoy = new Date();
     //Calcular la diferencia
     const edadAnios = hoy.getFullYear() - fechaNacimiento.getFullYear();
-
     //Debemos saber si la persona ya cumplió ese año
     const mesActual = hoy.getMonth();
     const diaActual = hoy.getDate();
     const mesNacimiento = fechaNacimiento.getMonth();
     const diaNacimiento = fechaNacimiento.getDate();
-
     //Si el mes actual es menor al mes de nacimiento, o si es el mismo mes pero el día actual es menor al día de nacimiento, significa que aún no ha cumplido años este año
     if (mesActual < mesNacimiento || (mesActual === mesNacimiento && diaActual < diaNacimiento)) {
         edadAnios--;
     }
-
     //Calcular meses y días restantes
     const edadMeses = mesActual - mesNacimiento;
     if (edadMeses < 0) {
         edadMeses += 12;
     }
-
     const edadDias = diaActual - diaNacimiento;
     if (edadDias < 0) {
         const diasEnMesAnterior = new Date(hoy.getFullYear(), hoy.getMonth(), 0).getDate();
         edadDias += diasEnMesAnterior;
     }
-
     //Mostrar el resultado en una alerta
     alert(`Han transcurrido ${edadAnios} años, ${edadMeses} meses y ${edadDias} días desde que naciste.`);
 }
